@@ -53,3 +53,22 @@ jobs:
         uses: scalacenter/sbt-dependency-submission@v2
         with:
           configs-ignore: test scala-tool scala-doc-tool test-internal
+
+  dependency-review:
+    name: Dependency Review
+    if: github.event_name == 'pull_request'
+    needs: [dependency-submission]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: low
+          comment-summary-in-pr: always
+          allow-licenses: Apache-2.0, MIT, BSD-2-Clause, BSD-3-Clause, ISC, MPL-2.0
