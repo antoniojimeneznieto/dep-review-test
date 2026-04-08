@@ -1,0 +1,4 @@
+[debug] [dep-review-test-build] Classpath dependencies List()
+[debug] [dep-review-test-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'dep-review-test-build' to '/Users/antonio/Documents/Scala/dep-review-test/project/.bloop/dep-review-test-build.json'
+[success] Generated .bloop/dep-review-test-build.json
